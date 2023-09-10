@@ -1,0 +1,7 @@
+
+type Beneficiary @entity {
+    id: ID!
+    name: String!
+    address: String!
+    syncingIndex: BigInt!
+}

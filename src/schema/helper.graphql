@@ -1,0 +1,6 @@
+
+# Miscellaneous Syncing Index
+type Bundle @entity {
+  id: ID!
+  syncingIndex: BigInt!
+}

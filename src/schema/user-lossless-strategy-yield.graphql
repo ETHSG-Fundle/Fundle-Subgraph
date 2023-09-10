@@ -1,0 +1,12 @@
+
+type UserStrategyEpochYield @entity {
+    id: ID! # user-address-epoch
+    epoch: BigInt!
+    user: User!
+    token: Token!
+    asset: Token!
+    assetAmount: BigInt!
+    currentSharesAmount: BigInt!
+    totalSharesAmount: BigInt!
+    syncingIndex: BigInt!
+}

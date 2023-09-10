@@ -1,0 +1,36 @@
+
+type Strategy @entity {
+    id: ID! # Address
+    name: String! # As key differentiator
+    syncingIndex: BigInt!
+}
+
+type YieldClaim @entity {
+    id: ID! # StrategyName-EpochIndex
+    epoch: BigInt!
+    strategy: Strategy!
+    asset: Token!
+    amount: BigInt!
+    timestamp: BigInt!
+    syncingIndex: BigInt!
+}
+
+type BeneficiaryYieldDistribution @entity {
+    id: ID! # StrategyName-Epoch-Beneficiary
+    epoch: BigInt!
+    strategy: Strategy!
+    beneficiary: Beneficiary!
+    asset: Token!
+    amount: BigInt!
+    timestamp: BigInt!
+    syncingIndex: BigInt!
+}
+
+type LosslessStrategyOverallData @entity {
+    id: ID! # strategyName-epoch-Beneficiary
+    asset: Token!
+    totalAssetDeposited: BigInt!
+    totalAssetWithdrawn: BigInt!
+    currentAssetStake: BigInt!
+    syncingIndex: BigInt!
+}

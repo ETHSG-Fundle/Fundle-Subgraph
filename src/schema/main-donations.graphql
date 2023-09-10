@@ -1,0 +1,18 @@
+
+type MainDonations @entity {
+    id: ID! # Hash
+    epoch: BigInt!
+    donor: User!
+    beneficiary: Beneficiary!
+    amount: BigInt!
+    timestamp: BigInt!
+    syncingIndex: BigInt!
+}
+
+type TotalMainEpochBeneficiaryDonations @entity {
+    id: ID! # Epoch-Beneficiary
+    epoch: BigInt!
+    beneficiary: Beneficiary!
+    amount: BigInt!
+    syncingIndex: BigInt!
+}
