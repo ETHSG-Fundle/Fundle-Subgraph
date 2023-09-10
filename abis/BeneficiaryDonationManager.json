@@ -2,13 +2,43 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "_startTime",
-        "type": "uint256"
+        "internalType": "address",
+        "name": "token_",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "certificate_",
+        "type": "address"
       }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "epoch",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "donor",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "DepositForEpochDistributedDonation",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -166,6 +196,37 @@
         "type": "uint256[]"
       }
     ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "donor",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "depositForEpochDistribution",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "depositForEpochDistribution",
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -415,12 +476,12 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
+        "internalType": "address",
+        "name": "strategy",
+        "type": "address"
       }
     ],
-    "name": "setAllowanceForDonation",
+    "name": "removeStrategy",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
