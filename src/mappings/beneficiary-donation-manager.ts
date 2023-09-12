@@ -10,7 +10,7 @@ import { MainDonations } from '../../generated/schema';
 import { getBeneficiary } from '../entities/beneficiary';
 import { getTotalMainEpochBeneficiaryDonations } from '../entities/total-main-epoch-beneficiary-donations';
 
-export function handleBeneficiaryDonation(event: DonationEvent) {
+export function handleBeneficiaryDonation(event: DonationEvent):void {
   let txHash = event.transaction.hash;
   let epochIndex = event.params.epoch;
   let donatedAmount = event.params.amount;

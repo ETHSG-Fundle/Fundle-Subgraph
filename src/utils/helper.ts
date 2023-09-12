@@ -1,7 +1,7 @@
 import { BigDecimal, BigInt, Entity, Value, ethereum } from '@graphprotocol/graph-ts';
 import { Bundle } from '../../generated/schema';
 import { ZERO_BI, ONE_BI, IPFS_HASH_LENGTH, NATIVE_ALT } from './constants.template';
-import { BENEFICIARY_DETAILS, NATIVE } from './constants';
+import { NATIVE } from './constants';
 
 /* ==================================================
                     Constants
@@ -125,7 +125,7 @@ export function checkNullAddress(address: string): boolean {
 =====================================================*/
 export function getStrategyName(address: string): string {
   address = address.toLowerCase();
-  return BENEFICIARY_DETAILS[address].name ?? 'UNKNOWN';
+  return 'UNKNOWN';
 }
 
 export function getAmountByProportion(

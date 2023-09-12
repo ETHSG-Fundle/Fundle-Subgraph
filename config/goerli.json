@@ -1,0 +1,7 @@
+{
+    "network": "goerli",
+    "BeneficiaryDonationManager_Address": "0x32f972DFbFAD84c986Db30681f1177e221ef72dd",
+    "BeneficiaryDonationManager_StartBlock": 9675069,
+    "SDAIERC4626Strategy_Address": "0xe8f91eaa5b8273Db22beEBb890C194d3D0D2e582",
+    "SDAIERC4626Strategy_StartBlock": 9675167
+}

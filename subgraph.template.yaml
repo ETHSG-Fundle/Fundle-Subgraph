@@ -31,7 +31,7 @@ dataSources:
       file: ./src/mappings/beneficiary-donation-manager.ts
 
   - kind: ethereum/contract
-    name: SDAIERC4626Strategy
+    name: ERC4626Strategy
     network: "{{network}}"
     source:
       address: "{{SDAIERC4626Strategy_Address}}"
@@ -49,13 +49,13 @@ dataSources:
       abis:
         - name: ERC4626Strategy
           file: ./abis/ERC4626Strategy.json
+        - name: ERC20
+          file: ./abis/ERC20.json
       eventHandlers:
         - event: Deposit(indexed uint256,indexed address,indexed address,uint256)
           handler: handleERC4626Deposit
         - event: Withdraw(indexed uint256,indexed address,indexed address,uint256)
           handler: handleERC4626Withdraw
-        - event: EpochYieldClaim(indexed uint256,indexed address,uint256)
-          handler: handleERC4626EpochYieldClaim
         - event: DistributeYield(indexed uint256,indexed address,indexed address,uint256)
           handler: handleERC4626DistributeYield
         - event: Transfer(indexed address,indexed address,uint256)

@@ -1,5 +1,4 @@
 import { Beneficiary } from '../../generated/schema';
-import { BENEFICIARY_DETAILS } from '../utils/constants';
 import { setSyncingIndex } from '../utils/helper';
 
 export function getBeneficiary(address: string): Beneficiary {
@@ -17,5 +16,5 @@ export function getBeneficiary(address: string): Beneficiary {
 }
 
 export function getBeneficiaryName(address: string): string {
-  return BENEFICIARY_DETAILS[address].name ?? 'UNKNOWN';
+  return 'UNKNOWN';
 }

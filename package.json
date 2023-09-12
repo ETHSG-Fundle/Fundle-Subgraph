@@ -8,7 +8,7 @@
     "prepare:main": "yarn mustache ./config/${NETWORK}.json subgraph.template.yaml subgraph.yaml && yarn mustache ./config/${NETWORK}.json ./src/utils/constants.template.ts ./src/utils/constants.ts && rm -rf generated && yarn codegen",
     "prepare:bsc": "NETWORK=bsc yarn prepare:main",
     "prepare:chapel": "NETWORK=chapel yarn prepare:main",
-    "prepare:fuji": "NETWORK=fuji yarn prepare:main",
+    "prepare:goerli": "NETWORK=goerli yarn prepare:main",
     "prepare:mumbai": "NETWORK=mumbai yarn prepare:main",
     "deploy:bsc": "yarn prepare:bsc && yarn deploy",
     "deploy:kovan": "yarn prepare:kovan && yarn deploy",

@@ -4,7 +4,7 @@ import {
   EpochYieldClaim as EpochYieldClaimEvent,
   Transfer as TransferEvent,
   DistributeYield as DistributeYieldEvent,
-} from '../../generated/SDAIERC4626Strategy/ERC4626Strategy';
+} from '../../generated/ERC4626Strategy/ERC4626Strategy';
 import {
   BeneficiaryYieldDistribution,
   YieldClaim,
@@ -26,7 +26,7 @@ import {
 import { dataSource } from '@graphprotocol/graph-ts';
 import { ZERO_BI } from '../utils/constants.template';
 
-export function handleERC4626Deposit(event: DepositEvent) {
+export function handleERC4626Deposit(event: DepositEvent): void {
   let user = getUser(event.params.user.toHexString());
   let strategy = getStrategy(dataSource.address.toString());
   let token = getToken(event.address.toHexString());
@@ -64,7 +64,7 @@ export function handleERC4626Deposit(event: DepositEvent) {
   userStrategyEpochYield.save();
 }
 
-export function handleERC4626Withdraw(event: WithdrawEvent) {
+export function handleERC4626Withdraw(event: WithdrawEvent): void {
   let strategyAddress = dataSource.address.toString();
   let underlyingAmount = event.params.underlyingAmountOut;
   let entityId = getUserStrategyEpochYieldEntityId(
@@ -86,26 +86,8 @@ export function handleERC4626Withdraw(event: WithdrawEvent) {
   userStrategyEpochYield.save();
 }
 
-export function handleERC4626EpochYieldClaim(event: EpochYieldClaimEvent) {
-  let strategy = getStrategy(event.address.toHexString());
-  let asset = getToken(event.params.asset.toHexString());
 
-  let epochIndex = event.params.epoch;
-  let yieldClaimEntityId = `${strategy.id}-${epochIndex}`;
-
-  let yieldClaim = new YieldClaim(yieldClaimEntityId);
-  yieldClaim.epoch = epochIndex;
-  yieldClaim.strategy = strategy.id;
-  yieldClaim.asset = asset.id;
-  yieldClaim.amount = event.params.yieldAmount;
-  yieldClaim.timestamp = event.block.timestamp;
-
-  setSyncingIndex('yieldclaim', yieldClaim);
-
-  yieldClaim.save();
-}
-
-export function handleERC4626DistributeYield(event: DistributeYieldEvent) {
+export function handleERC4626DistributeYield(event: DistributeYieldEvent): void {
   let strategy = getStrategy(event.address.toHexString());
   let asset = getToken(event.params.underlyingAsset.toHexString());
   let beneficiary = getBeneficiary(event.params.beneficiary.toHexString());
@@ -126,7 +108,7 @@ export function handleERC4626DistributeYield(event: DistributeYieldEvent) {
   beneficiaryYieldDistribution.save();
 }
 
-export function handleTransfer(event: TransferEvent) {
+export function handleTransfer(event: TransferEvent): void {
   let fromUser = getUser(event.params.from.toHexString());
   let toUser = getUser(event.params.to.toHexString());
   if (checkNullAddress(fromUser.id) || checkNullAddress(toUser.id)) return;

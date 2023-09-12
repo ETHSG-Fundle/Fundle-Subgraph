@@ -41,20 +41,13 @@ export function getType(address: string): string {
   if (address == NATIVE || address == NATIVE_ALT) {
     return 'NATIVE';
   }
-  let contract_20 = ERC20.bind(Address.fromString(address));
-  const interface20_validity_result =
-    contract_20.try_supportsInterface(ERC20_INTERFACE_ID);
 
-  if (!interface20_validity_result.reverted && interface20_validity_result.value) {
     return 'ERC20';
-  }
-
-  return 'UNKNOWN';
 }
 
 // Metadata helper functions:
 export function getName(address: string): string {
-  let contract = ERC721.bind(Address.fromString(address));
+  let contract = ERC20.bind(Address.fromString(address));
   const result = contract.try_name();
 
   if (result.reverted) {
@@ -64,7 +57,7 @@ export function getName(address: string): string {
 }
 
 export function getSymbol(address: string): string {
-  let contract = ERC721.bind(Address.fromString(address));
+  let contract = ERC20.bind(Address.fromString(address));
   const result = contract.try_symbol();
 
   if (result.reverted) {
@@ -73,21 +66,3 @@ export function getSymbol(address: string): string {
   return result.value;
 }
 
-export function getTokenUri(address: string, tokenId: BigInt): string {
-  let contract_721 = ERC721.bind(Address.fromString(address));
-
-  const tokenUriResult = contract_721.try_tokenURI(tokenId);
-
-  let contract_1155 = ERC1155.bind(Address.fromString(address));
-  const uriResult = contract_1155.try_uri(tokenId);
-
-  if (!tokenUriResult.reverted && uriResult.reverted) {
-    return tokenUriResult.value;
-  }
-
-  if (tokenUriResult.reverted && !uriResult.reverted) {
-    return uriResult.value;
-  }
-
-  return 'unknown';
-}

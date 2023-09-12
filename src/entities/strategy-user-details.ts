@@ -1,11 +1,11 @@
 import { Address, BigInt } from '@graphprotocol/graph-ts';
 import { UserStrategyEpochYield } from '../../generated/schema';
-import { Deposit as DepositEvent } from '../../generated/SDAIERC4626Strategy/ERC4626Strategy';
+import { Deposit as DepositEvent } from '../../generated/ERC4626Strategy/ERC4626Strategy';
 import { getUser } from './user';
 import { getStrategy } from './strategy';
 import { getToken } from './token';
 
-import { ERC4626Strategy } from '../../generated/SDAIERC4626Strategy/ERC4626Strategy';
+import { ERC4626Strategy } from '../../generated/ERC4626Strategy/ERC4626Strategy';
 import { ZERO_BI } from '../utils/constants.template';
 import { setSyncingIndex } from '../utils/helper';
 

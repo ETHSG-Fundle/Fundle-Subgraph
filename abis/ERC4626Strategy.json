@@ -3,22 +3,22 @@
     "inputs": [
       {
         "internalType": "string",
-        "name": "_name",
+        "name": "name_",
         "type": "string"
       },
       {
         "internalType": "string",
-        "name": "_symbol",
+        "name": "symbol_",
         "type": "string"
       },
       {
         "internalType": "address",
-        "name": "_erc4626",
+        "name": "erc4626_",
         "type": "address"
       },
       {
         "internalType": "address",
-        "name": "_manager",
+        "name": "manager_",
         "type": "address"
       }
     ],
@@ -353,40 +353,6 @@
     "inputs": [],
     "name": "claimOwnership",
     "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "epochIndex",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address[]",
-        "name": "beneficiaries",
-        "type": "address[]"
-      },
-      {
-        "internalType": "uint256[]",
-        "name": "basisPoints",
-        "type": "uint256[]"
-      }
-    ],
-    "name": "claimYieldAndDistributeByEpoch",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "yield",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "token",
-        "type": "address"
-      }
-    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },

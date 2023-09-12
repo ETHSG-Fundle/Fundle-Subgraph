@@ -1,7 +1,0 @@
-{
-    "network": "chapel",
-    "BeneficiaryDonationManager_Address": "0xdDeb153A6301E953984AE0583bcCb6c086F0C3Eb",
-    "BeneficiaryDonationManager_StartBlock": 31880810,
-    "SDAIERC4626Strategy_Address": "0xdDeb153A6301E953984AE0583bcCb6c086F0C3Eb",
-    "SDAIERC4626Strategy_StartBlock": 31880810
-}
